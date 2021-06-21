@@ -1,6 +1,8 @@
 package com.hoaxify.ws.User;
 
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.hoaxify.ws.shared.Views;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -20,10 +22,12 @@ public class User {
     @NotNull(message = "{hoaxify.constraint.username.NotNull.message}")
     @Size(min=4,max = 255)
     @UniqueUsername
+    @JsonView(Views.Base.class)
     private String username;
 
     @NotNull
     @Size(min=4,max = 255)
+    @JsonView(Views.Base.class)
     private String displayName;
 
     @NotNull
@@ -31,4 +35,6 @@ public class User {
     @Size(min=8, max=255)
     private String password;
 
+    @JsonView(Views.Base.class)
+    private String image;
 }
