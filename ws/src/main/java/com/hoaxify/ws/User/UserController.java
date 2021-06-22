@@ -23,7 +23,7 @@ public class UserController {
     public GenericResponse createUser(@RequestBody @Valid User user) {
         userService.save(user);
         return new GenericResponse("User Created");
-
     }
+
 }
 
